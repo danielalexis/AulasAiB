@@ -1,0 +1,23 @@
+Entrada:
+num1
+num2
+
+Processamento:
+soma <- num1 + num2
+
+Saída:
+soma
+
+
+
+
+PseudoCódigo:
+Algoritmo "Soma de dois números"
+Variáveis
+	num1, num2, soma: Inteiro
+Inicio
+	Ler(num1)
+	Ler(num2)
+	soma <- num1 + num2
+	Escrever(soma)
+Fim
