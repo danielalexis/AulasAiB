@@ -12,10 +12,10 @@ soma
 
 
 PseudoCódigo:
-
-Variáveis:
+Algoritmo "Soma de dois números"
+Variáveis
 	num1, num2, soma: Inteiro
-Inicio:
+Inicio
 	Ler(num1)
 	Ler(num2)
 	soma <- num1 + num2
