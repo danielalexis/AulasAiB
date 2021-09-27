@@ -11,7 +11,7 @@ dobro
 
 
 PseudoCódigo:
-Algoritmo "Soma de dois números"
+Algoritmo "O dobro de um numero"
 Variáveis
 	num, dobro: Inteiro
 Inicio
