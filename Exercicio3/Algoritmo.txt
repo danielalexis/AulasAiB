@@ -1,0 +1,24 @@
+Entrada:
+time
+vel
+
+Processamento:
+dist <- (vel / 3,6) / time
+
+Saída:
+dist
+
+
+
+Pseudocódigo:
+Algoritmo "Calcular a distancia a partir de velocidade e tempo)"
+Variaveis
+	vel, time: Inteiro
+	dist: Real
+
+Inicio
+	Ler(vel)
+	Ler(time)
+	dist <- (vel / 3,6) / time
+	Escrever(dist)
+Fim
