@@ -1,0 +1,22 @@
+Entrada:
+price
+quant
+
+Processamento:
+total_price <- (price x quant) x 1.23
+
+Saída:
+total_price
+
+
+Pseudocódigo:
+Algoritmo "Cálculo de preço total de um produto"
+Variaveis
+	quant: Inteiro
+	price, total_price: Real
+Inicio:
+	Ler(price)
+	Ler(quant)
+	total_price <- (price x quant) x (1 + IVA)
+	Escrever(total_price)
+Fim 
