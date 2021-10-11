@@ -21,7 +21,7 @@ Inicio
 	Se (num MOD 2) = 0 Então
 		res <- num DIV 2
 	Senão
-		res = num x 2
+		res <- num x 2
 	FimSe
 	Escrever(res)
 Fim
