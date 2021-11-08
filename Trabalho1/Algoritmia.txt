@@ -1,0 +1,34 @@
+Entrada:
+dificuldade
+num
+
+Processamento:
+Caso dificuldade Seja:
+	1: rnum <- Aleatorio(1, 15)
+	   tentativas <- 3
+	2: rnum <- Aleatorio(1, 30)
+	   tentativas <- 6
+	3: rnum <- Aleatorio(1, 60)
+	   tentativas <- 9
+FimCaso
+
+Saida:
+res
+
+
+
+PseudoCódigo:
+Algoritmo "calculadora"
+Variaveis
+	num1, num2, res: Inteiro
+	oper: Caracter
+Inicio
+	Ler(num1,oper,num2)
+	Caso oper Seja:
+		'+': res <- num1 + num2
+		'-': res <- num1 - num2
+		'X': res <- num1 X num2
+		'/': res <- num1 DIV num2
+	FimCaso
+	Escrever(res)
+Fim
