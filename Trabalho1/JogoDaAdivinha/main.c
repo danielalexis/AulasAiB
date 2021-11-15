@@ -4,12 +4,12 @@
 #include <stdbool.h>
 
 int num_aleatorio, dificuldade, num, tentativas;
-bool repetir = true, acertou = false;
+bool repetir = true, acertou;
 char jogar;
 int main()
 {
     while (repetir) {
-
+        acertou = false; //Ainda não acertou o número
         printf("\n    |-----------------------|\n");
         printf("    |    Jogo da Adivinha   |\n");
         printf("    |      Dificuldade:     |\n");
@@ -18,7 +18,8 @@ int main()
         printf("    |      3 - Dificil      |\n");
         printf("    |      4 - Sair         |\n");
         printf("    |-----------------------|\n");
-        while (!tentativas) {
+        
+        do{
             // O jogador escolhe a dificuldade
             printf("Dificuldade: ");
             scanf("%i", &dificuldade);
@@ -33,7 +34,7 @@ int main()
             // Dificl - Numero entre 1 a 60
             switch (dificuldade){
                 case 1:
-                    num_aleatorio = rand() % 15 + 1;
+                    num_aleatorio = rand() % 1 + 1;
                     tentativas = 4;
                     break;
                 case 2:
@@ -51,7 +52,8 @@ int main()
                 default:
                     printf("Opcao invalida\n"); //Se a opcão for invalida repete até ao jogador escolher uma opcão valida
             }
-        }
+        }while (!num_aleatorio);
+
         printf("\nNota: escreva '0' para sair do programa\n");
         printf("Tens %i tentativas\n", tentativas);
         while (!acertou) {
@@ -76,9 +78,11 @@ int main()
         }
         if (acertou) {
             printf("Ganhou!!!\n");
+
         } else if (num == 0) {
             printf("O numero aleatorio era %i\n", num_aleatorio);
             printf("Adeus\n");
+            
         } else {
             printf("Ficou sem tentativas! Boa sorte da proxima!\n");
 
@@ -87,6 +91,7 @@ int main()
             scanf(" %c", &jogar);
             if (jogar == 'n') {
                 repetir = false;
+                break;
                 
             }
         system("cls"); //limpa o ecrã 
