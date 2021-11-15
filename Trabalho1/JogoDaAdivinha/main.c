@@ -85,7 +85,7 @@ int main()
         }
             printf("Quer jogar novamente (s/n)? ");
             scanf(" %c", &jogar);
-            if (jogar == "n") {
+            if (jogar == 'n') {
                 repetir = false;
                 
             }
