@@ -10,7 +10,6 @@ int main()
 {
     while (repetir) {
 
-        //system("cls"); //limpa o ecrã
         printf("\n    |-----------------------|\n");
         printf("    |    Jogo da Adivinha   |\n");
         printf("    |      Dificuldade:     |\n");
@@ -68,10 +67,10 @@ int main()
 
             if (num == num_aleatorio) {
                 acertou = true; //o jogador ganhou
-            } else if (num > num_aleatorio && tentativas != 1) { // Se s� tiver 1 tentativa n�o mostrar a dica
+            } else if (num > num_aleatorio && tentativas != 1) { // Se só tiver 1 tentativa não mostrar a dica
                 printf("Dica o numero e menor do que %i\n", num);
             } else if (num < num_aleatorio && tentativas != 1) {
-                printf("Dica o numero e maior do que %i\n", num); // Se s� tiver 1 tentativa n�o mostrar a dica
+                printf("Dica o numero e maior do que %i\n", num); // Se só tiver 1 tentativa não mostrar a dica
             }
             tentativas--; // Remover 1 tentativa
         }
@@ -86,7 +85,7 @@ int main()
         }
             printf("Quer jogar novamente (s/n)? ");
             scanf(" %c", &jogar);
-            if (jogar == 'n') {
+            if (jogar == "n") {
                 repetir = false;
                 
             }
