@@ -34,7 +34,7 @@ int main()
             // Dificl - Numero entre 1 a 60
             switch (dificuldade){
                 case 1:
-                    num_aleatorio = rand() % 1 + 1;
+                    num_aleatorio = rand() % 15 + 1;
                     tentativas = 4;
                     break;
                 case 2:
