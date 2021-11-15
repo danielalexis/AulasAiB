@@ -58,7 +58,7 @@ int main()
         printf("Tens %i tentativas\n", tentativas);
         while (!acertou) {
             if (tentativas == 0) {
-                break; //sai do loop se o jogador ficou sme tentativas
+                break; //sai do loop se o jogador ficou sem tentativas
             }
             printf("Adivinha: ");
             scanf("%i", &num);
