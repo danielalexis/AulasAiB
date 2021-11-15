@@ -3,15 +3,14 @@
 #include <time.h>
 #include <stdbool.h>
 
-int dificuldade, num, tentativas;
+int num_aleatorio, dificuldade, num, tentativas;
 bool repetir = true, acertou = false;
 char jogar;
 int main()
 {
     while (repetir) {
-        int num_aleatorio;
 
-        //system("cls"); //limpa o ecr�
+        //system("cls"); //limpa o ecrã
         printf("\n    |-----------------------|\n");
         printf("    |    Jogo da Adivinha   |\n");
         printf("    |      Dificuldade:     |\n");
@@ -89,8 +88,9 @@ int main()
             scanf(" %c", &jogar);
             if (jogar == 'n') {
                 repetir = false;
-                break;
-            }  
+                
+            }
+        system("cls"); //limpa o ecrã 
     }
 
     return 0;
