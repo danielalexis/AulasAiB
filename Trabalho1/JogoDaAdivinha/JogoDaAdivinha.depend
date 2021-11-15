@@ -1,7 +1,0 @@
-# depslib dependency file v1.0
-1636373348 source:c:\users\aluno\documents\12g\12g-aib-d1-trab1\jogodaadivinha\main.c
-	<stdio.h>
-	<stdlib.h>
-	<time.h>
-	<stdbool.h>
-

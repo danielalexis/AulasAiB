@@ -63,12 +63,12 @@ int main()
             printf("Adivinha: ");
             scanf("%i", &num);
 
-            if (num == 0) {
+            if (num == 0) { //Se o jogador escrever zero o programa termina
                 break;
             }
 
             if (num == num_aleatorio) {
-                acertou = true; //o jogador ganhou
+                acertou = true; // O jogador ganhou
             } else if (num > num_aleatorio && tentativas != 1) { // Se só tiver 1 tentativa não mostrar a dica
                 printf("Dica o numero e menor do que %i\n", num);
             } else if (num < num_aleatorio && tentativas != 1) {
@@ -87,13 +87,13 @@ int main()
             printf("Ficou sem tentativas! Boa sorte da proxima!\n");
 
         }
-            printf("Quer jogar novamente (s/n)? ");
-            scanf("%c", &jogar);
-            if (jogar == 'n') {
-                repetir = false;
-                break;
-                
-            }
+        printf("Quer jogar novamente (s/n)? ");
+        scanf("%c", &jogar);
+        if (jogar == 'n') {
+            repetir = false;
+            break;
+            
+        }
         system("cls"); //limpa o ecrã 
     }
 
