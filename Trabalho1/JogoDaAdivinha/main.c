@@ -1,3 +1,10 @@
+/*
+    Autor: Daniel Pereira
+    Data: 22/11/2021
+
+    Titulo: Jogo da Adivinha
+    Descricao. Adivinha um numero e ve se esta correto
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -18,7 +25,7 @@ int main()
         printf("    |      3 - Dificil      |\n");
         printf("    |      4 - Sair         |\n");
         printf("    |-----------------------|\n");
-        
+
         do{
             // O jogador escolhe a dificuldade
             printf("Dificuldade: ");
@@ -82,7 +89,7 @@ int main()
         } else if (num == 0) {
             printf("O numero aleatorio era %i\n", num_aleatorio);
             printf("Adeus\n");
-            
+
         } else {
             printf("Ficou sem tentativas! Boa sorte da proxima!\n");
 
@@ -92,9 +99,9 @@ int main()
         if (jogar == 'n') {
             repetir = false;
             break;
-            
+
         }
-        system("cls"); //limpa o ecrã 
+        system("cls"); //limpa o ecrã
     }
 
     return 0;
