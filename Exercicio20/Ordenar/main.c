@@ -15,7 +15,7 @@ int OrdenarSeq( int[TAMSEQ]);
 void ImprimirSeq( int[TAMSEQ]);
 int NumMaiorSeq( int[TAMSEQ]);
 int NumMenorSeq( int[TAMSEQ]);
-int MediaSeq( int[TAMSEQ]);
+float MediaSeq( int[TAMSEQ]);
 int MedianaSeq( int[TAMSEQ]);
 
 int main()
@@ -43,7 +43,7 @@ int main()
                 printf("O numero menor da sequência é: %i\n", NumMenorSeq(sequencia));
                 break;
             case 6:
-                printf("A media da sequência é: %i\n", MediaSeq(sequencia));
+                printf("A media da sequência é: %f\n", MediaSeq(sequencia));
                 break;
             case 7:
                 printf("A mediana da sequência é: %i\n", MedianaSeq(sequencia));
@@ -128,12 +128,12 @@ int NumMenorSeq(int sequencia[TAMSEQ]) {
     return menor;
 }
 
-int MediaSeq(int sequencia[TAMSEQ]) {
+float MediaSeq(int sequencia[TAMSEQ]) {
     int soma = 0;
     for (int i = 0; i < TAMSEQ; i++) {
         soma += sequencia[i];
     }
-    return soma / TAMSEQ;
+    return (float)soma / TAMSEQ;
 }
 
 int MedianaSeq(int sequencia[TAMSEQ]) {
