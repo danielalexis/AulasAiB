@@ -63,9 +63,9 @@ int menu() {
     printf("1 - Ler Sequência\n");
     printf("2 - Ordenar Sequência\n");
     printf("3 - Imprimir Sequência\n");
-    printf("4 - Numero Maior da Sequência\n");
-    printf("5 - Numero Menor da Sequência\n");
-    printf("6 - Media da Sequência\n");
+    printf("4 - Número Maior da Sequência\n");
+    printf("5 - Número Menor da Sequência\n");
+    printf("6 - Média da Sequência\n");
     printf("7 - Mediana da Sequência\n");
     printf("0 - Sair\n");
     printf("------------------\n");
