@@ -1,0 +1,27 @@
+Entrada:
+num
+
+Processamento:
+Se (num MOD 2) = 0 Então
+	ePar = true
+Senão
+	ePar = false
+FimSe
+
+Saída:
+ePar
+
+
+Pseudocódigo:
+Algoritmo "Verificar se um numero e par"
+Variaveis
+	num, ePar: Inteiro
+Inicio
+	Ler(num)
+	Se (num MOD 2) = 0 Então
+		ePar = true
+	Senão
+		ePar = false
+	FimSe
+	Escrever(ePar)
+Fim

@@ -1,0 +1,99 @@
+Entrada:
+dificuldade
+num
+
+Processamento:
+Caso dificuldade Seja
+	1: num_aleatorio <- Aleatorio(1, 15)
+	   tentativas <- 3
+	2: num_aleatorio <- Aleatorio(1, 30)
+	   tentativas <- 6
+	3: num_aleatorio <- Aleatorio(1, 60)
+	   tentativas <- 9
+	4: Escrever("Adeus")
+	   Sair
+FimCaso
+Enquanto Não acertou Fazer
+	Se tentativas = 0 Então
+		SairEnquanto
+	FimSe
+	Ler(num)
+	Se num = 0 Então
+		Escrever("Adeus")
+		Sair
+	Se num = num_aleatorio Então
+		acertou <- Verdadeiro
+	Senão Se num > num_aleatorio E tentativas <> 1 Então
+		Escrever("Dica: O numero e menor do que %i", num_aleatorio)
+	Senão Se num < num_aleatorio E tentativas <> 1 Então
+		Escrever("Dica: O numero e maior do que %i", num_aleatorio) 
+	FimSe
+	tentativas <- tentativas - 1
+FinEnquanto
+
+Saida:
+acertou
+
+
+
+PseudoCódigo:
+Algoritmo "Jogo da Adivinha"
+Variaveis
+	num_aleatorio, dificuldade, num, tentativas: Inteiro
+	acertou, repetir: Booleano
+	jogar: Caracter
+Inicio
+	Enquanto repetir Fazer
+		Escrever("Jogo da Adivinha")
+			Escrever("Dificuldade:")
+			Escrever("1 - Facil")
+			Escrever("2 - Medio")
+			Escrever("3 - Dificil")
+		Escrever("4 - Sair")
+		Fazer
+			Caso dificuldade Seja
+				1: num_aleatorio <- Aleatorio(1, 15)
+				tentativas <- 4
+				2: num_aleatorio <- Aleatorio(1, 30)
+				tentativas <- 8
+				3: num_aleatorio <- Aleatorio(1, 60)
+				tentativas <- 12
+				4: Escrever("Adeus")
+				Sair
+			FimCaso
+		Enquanto Não num_aleatorio
+
+		Escrever("Nota: escreva '0' para sair do programa")
+		Escrever("Tens %i tentativas\n", tentativas)
+
+		Enquanto Não acertou Fazer
+			Se tentativas = 0 Então
+				SairEnquanto
+			FimSe
+			Ler(num)
+			Se num = 0 Então
+				SairEnquanto
+			Se num = num_aleatorio Então
+				acertou <- Verdadeiro
+			Senão Se num > num_aleatorio E tentativas <> 1 Então
+				Escrever("Dica: O numero e menor do que %i", num_aleatorio)
+			Senão Se num < num_aleatorio E tentativas <> 1 Então
+				Escrever("Dica: O numero e maior do que %i", num_aleatorio) 
+			FimSe
+			tentativas <- tentativas - 1
+		FimEnquanto
+		Se acertou Então
+			Escrever("Ganhou!!!")
+		Senão Se num = 0 Então
+			Escrever("O numero aleatorio era %i", num_aleatorio)
+			Escrever("Adeus")
+		Senão
+			Escrever("Ficou sem tentativas! Boa sorte para a proxima!")
+		
+		Escrever("Quer jogar novamente (s/n)? ")
+		Ler(jogar)
+		Se jogar = n Então
+			repetir <- Falso
+			SairEnquanto
+	FimEnquanto
+Fim

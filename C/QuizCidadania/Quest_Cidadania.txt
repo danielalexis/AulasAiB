@@ -1,0 +1,9 @@
+Qual é o dia mundial da Saúde Mental?|10 de Outubro|20 de Outubro|12 de Outubro|30 de Outubro|1
+Não e um sistema operativo|Windows|Linux|Apple|Android|3
+O disco rígido, do inglês hard disk, tambem conhecido como HD, serve como:|Programa de edição de texto|Unidade de armazenamento permanente, guardando dados e programas|Navegador para acesso à internet|Armazenamento de memória volátil, que se perde quando se desliga o computador|2
+"Random Access Memory" é mais conhecida como:|Memória ROM|Memória externa|Memória RAM|Memória permantente|3
+USB é abreviação de:|Universal System Bus|Universal Serial Bios|Universal Serial Bit|Universal Serial Bus|4
+O que é Hardware?|A parte lógica do computador|A parte física do computador|A parte burocrática do computador|As pessoas que usam o computador|2
+São exemplos de sistemas operativos:|Word e Windows|Processador e Hardware|Linux e Windows|Software e Hardware|3
+Podemos definir INFORMÁTICA, como:|A ciência que trata logicamente os dados|O Hardware que trata logicamente os dados|O Programa de Computador|As peças do computador|1
+Qual é a melhor palavra-passe?|Ana@Lucia|luiza18|210345231|Three@r_5|4

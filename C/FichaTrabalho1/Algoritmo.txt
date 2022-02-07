@@ -1,0 +1,32 @@
+Problema 1
+
+Entrada:
+tempoSeg
+
+Processamento:
+horas <- tempoSeg DIV 3600
+resto_horas <- tempoSeg MOD 3600
+mins <- resto_horas DIV 60
+segundos <- resto_horas MOD 60
+
+
+Saida:
+horas
+mins
+segundos
+
+
+Pseudocódigo:
+Algoritmo "Quantas horas, minutos e segundos tem em x segundos"
+Variaveis:
+	tempoSeg, horas, resto_horas, mins, segundos: Inteiro
+Inicio:
+	Ler(tempoSeg)
+	horas <- tempoSeg DIV 3600
+	resto_horas <- tempoSeg MOD 3600
+	mins <- resto_horas DIV 60
+	segundos <- resto_horas MOD 60
+	Escrever(horas)
+	Escrever(mins)
+	Escrever(Segundos)
+Fim
