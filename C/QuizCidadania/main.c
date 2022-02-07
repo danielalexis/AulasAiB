@@ -20,7 +20,7 @@ char quest[MAXQST][TAMQST];
 
 void menu();
 void init( char[][TAMQST]);
-int FazerQuest( char[][TAMQST], int, int);       // Faz questionário de x perguntas num total de y
+int FazerQuest( char[][TAMQST], int, int);       // Faz questionÃ¡rio de x perguntas num total de y
 // Funcoes de armazenamento em ficheiro
 int CarregarQuest( const char *, char[][TAMQST]);   // Carrega quest?es a partir de ficheiro
 int GuardarQuestoes( char[][TAMQST], const char *);    // Guarda quest?es em ficheiro
@@ -34,31 +34,23 @@ int main()
     menu();
     init(quest);
 
-    // Carrega as questões do ficheiro
+    // Carrega as questÃµes do ficheiro
     totalPergs = CarregarQuest(nomeFicheiro, quest);
     if( totalPergs > 0) {
         printf("Foram carregadas %i perguntas do ficheiro <%s>.\n", totalPergs, nomeFicheiro);
     } else {
-        printf("Não foi possível abrir o ficheiro <%s> para leitura.\n", nomeFicheiro);
+        printf("NÃ£o foi possÃ­vel abrir o ficheiro <%s> para leitura.\n", nomeFicheiro);
     }
 
     do {
-        printf("\nIntroduza o número de perguntas a fazer (max %i): ", totalPergs);
+        printf("\nIntroduza o nÃºmero de perguntas a fazer (max %i): ", totalPergs);
         scanf("%i", &QuantPerguntas);
-        if (QuantPerguntas > totalPergs) { printf("Erro: Número de perguntas inválido.\n"); }
+        if (QuantPerguntas > totalPergs) { printf("Erro: NÃºmero de perguntas invÃ¡lido.\n"); }
     } while (QuantPerguntas > totalPergs);
 
     // Fazer o questionario
     res = FazerQuest( quest, totalPergs, QuantPerguntas);
     printf("Acertou %i das %i perguntas.\n", res, QuantPerguntas);
-    // Guarda perguntas do question?rio atual em ficheiro de texto
-    /*
-    totalPergs = GuardarQuestoes(questionario, nomeFicheiro);
-    if( totalPergs > 0)
-        printf("Foram guardadas %i perguntas em ficheiro <%s> com sucesso.\n", totalPergs, nomeFicheiro);
-    else
-        printf( "Nao foi possivel abrir o ficheiro para escrita!\n");
-    */
     return 0;
 }
 
@@ -74,14 +66,14 @@ void menu() {
 
 /*
 *  Inicializa o conjunto de perguntas
-*  Estrutura: Pergunta|Resposta|Resposta|Resposta|Resposta|Opção certa
+*  Estrutura: Pergunta|Resposta|Resposta|Resposta|Resposta|OpÃ§Ã£o certa
 */
 void init( char quest[][TAMQST])
 {
     int i;
 
     for( i=0; i<MAXQST; i++)
-        strcpy( quest[i], ""); // Inicializa as questões com uma string vazia
+        strcpy( quest[i], ""); // Inicializa as questÃµes com uma string vazia
 }
 
 /** FazerQuestionario
