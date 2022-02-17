@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Alexis\\Desktop\\Projetos\\AiB\\AulasAiB\\C#\\FichaTrab3\\FichaTrab3.csproj": {}
+    "C:\\Users\\Alexis\\Desktop\\Projetos\\AiB\\AulasAiB\\C#\\FichaTrab3\\FichaTrab3\\FichaTrab3.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Alexis\\Desktop\\Projetos\\AiB\\AulasAiB\\C#\\FichaTrab3\\FichaTrab3.csproj": {
+    "C:\\Users\\Alexis\\Desktop\\Projetos\\AiB\\AulasAiB\\C#\\FichaTrab3\\FichaTrab3\\FichaTrab3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Alexis\\Desktop\\Projetos\\AiB\\AulasAiB\\C#\\FichaTrab3\\FichaTrab3.csproj",
+        "projectUniqueName": "C:\\Users\\Alexis\\Desktop\\Projetos\\AiB\\AulasAiB\\C#\\FichaTrab3\\FichaTrab3\\FichaTrab3.csproj",
         "projectName": "FichaTrab3",
-        "projectPath": "C:\\Users\\Alexis\\Desktop\\Projetos\\AiB\\AulasAiB\\C#\\FichaTrab3\\FichaTrab3.csproj",
+        "projectPath": "C:\\Users\\Alexis\\Desktop\\Projetos\\AiB\\AulasAiB\\C#\\FichaTrab3\\FichaTrab3\\FichaTrab3.csproj",
         "packagesPath": "C:\\Users\\Alexis\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Alexis\\Desktop\\Projetos\\AiB\\AulasAiB\\C#\\FichaTrab3\\obj\\",
+        "outputPath": "C:\\Users\\Alexis\\Desktop\\Projetos\\AiB\\AulasAiB\\C#\\FichaTrab3\\FichaTrab3\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Alexis\\AppData\\Roaming\\NuGet\\NuGet.Config",
