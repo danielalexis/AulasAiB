@@ -6,13 +6,22 @@ namespace FichaTrab3
     {
         static void Main(string[] args)
         {
-            Ponto p1 = new Ponto(3, 2);
-            Ponto p2 = new Ponto(4, 2);
-            Console.WriteLine(p1.x);
-            p1.Imprimir();
-            p2.Imprimir();
+            Ponto p1 = new Ponto(0, 0);
+            Ponto p2 = new Ponto(1, 0);
+            Ponto p3 = new Ponto(1, 1);
+            Ponto p4 = new Ponto(0, 1);
+            //p1.Imprimir();
+            //p2.Imprimir();
+            //p3.Imprimir();
 
-            Console.WriteLine("Distância entre os pontos: " + p1.Distancia(p2));
+            Poligono poligono = new Poligono(new Ponto[] { p1, p2, p3 });
+            poligono.Imprimir();
+            Console.WriteLine("Perimetro: " + poligono.Perimetro());
+            Console.WriteLine("Area: " + poligono.Area());
+
+            Triangulo triangulo = new Triangulo(p1, p2, p3);
+            Console.WriteLine("Perimetro: " + triangulo.Perimetro());
+            Console.WriteLine("Area: " + triangulo.Area());
         }
     }
 

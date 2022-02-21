@@ -1,8 +1,18 @@
 namespace FichaTrab3 {
     class Ponto
     {
-        public double x;
-        public double y;
+        private double x;
+        private double y;
+        public double X {
+            get { return x; }
+            set { x = value; }
+        }
+
+        public double Y {
+            get { return y; }
+            set { y = value; }
+        }
+
         public Ponto(double x, double y)
         {
             this.x = x;
@@ -21,38 +31,4 @@ namespace FichaTrab3 {
         }
     
     }
-
-    class Poligono {
-        public Ponto[] pontos;
-        public Poligono(Ponto[] pontos)
-        {
-            this.pontos = pontos;
-        }
-        public void Imprimir()
-        {
-            for (int i = 0; i < pontos.Length; i++)
-            {
-                pontos[i].Imprimir();
-            }
-        }
-        public double Perimetro()
-        {
-            double perimetro = 0;
-            for (int i = 0; i < pontos.Length; i++)
-            {
-                perimetro += pontos[i].Distancia(pontos[(i + 1) % pontos.Length]);
-            }
-            return perimetro;
-        }
-        public double Area()
-        {
-            double area = 0;
-            for (int i = 0; i < pontos.Length; i++)
-            {
-                area += (pontos[i].x * pontos[(i + 1) % pontos.Length].y) - (pontos[i].y * pontos[(i + 1) % pontos.Length].x);
-            }
-            return area / 2;
-        }
-    }
-
 }
