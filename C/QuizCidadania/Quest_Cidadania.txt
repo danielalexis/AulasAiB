@@ -1,9 +1,11 @@
-Qual é o dia mundial da Saúde Mental?|10 de Outubro|20 de Outubro|12 de Outubro|30 de Outubro|1
-Não e um sistema operativo|Windows|Linux|Apple|Android|3
-O disco rígido, do inglês hard disk, tambem conhecido como HD, serve como:|Programa de edição de texto|Unidade de armazenamento permanente, guardando dados e programas|Navegador para acesso à internet|Armazenamento de memória volátil, que se perde quando se desliga o computador|2
-"Random Access Memory" é mais conhecida como:|Memória ROM|Memória externa|Memória RAM|Memória permantente|3
-USB é abreviação de:|Universal System Bus|Universal Serial Bios|Universal Serial Bit|Universal Serial Bus|4
-O que é Hardware?|A parte lógica do computador|A parte física do computador|A parte burocrática do computador|As pessoas que usam o computador|2
-São exemplos de sistemas operativos:|Word e Windows|Processador e Hardware|Linux e Windows|Software e Hardware|3
-Podemos definir INFORMÁTICA, como:|A ciência que trata logicamente os dados|O Hardware que trata logicamente os dados|O Programa de Computador|As peças do computador|1
-Qual é a melhor palavra-passe?|Ana@Lucia|luiza18|210345231|Three@r_5|4
+Quais são as causas de uma doença mental?|Os genes e antecedentes familiares.|Registos de abuso.|O uso de drogas ilegais.|Todas as anteriores.|4
+Podemos curar as doenças mentais?|Sim, todas.|Não, só se podem tratar.|Não, nenhuma.|Sim, com acompanhamento de um psicólogo.|2
+Qual é a doença que as pessoas ouvem vozes e sofrem de ataques de violência?|Transtorno bipolar.|Esquizofrenia.|Depressão.|Anorexia.|2
+Quais os sintomas de início de uma depressão?|Perda de visão.|Perda de memória.|Perda de audição.|Perda de apetite e problemas de sono.|4
+Qual é a organização que dá mais informações sobre os transtornos mentais?|ONU.|NATO.|OMS.|OIT.|3
+Qualquer pessoa pode sofrer de uma doença mental?|Sim, uma em cada quatro pessoas pode sofrer de uma doença mental.|Não, apenas algumas pessoas sofrem.|Apenas as crianças podem sofrer transtornos.|Apenas as pessoas de terceira idade.|1
+Aproximadamente, quantas pessoas sofrem de esquizoffrenia?|5 mil pessoas em todo o mundo.|100 mil pessoas.|Mais de 20 milhões.|Não existem.|3
+O transtorno bipolar pode estar presente na infância?|Não, só existe em adultos.|Sim, existem em crianças, adultos e pessoas de terceira idade.|Não, apenas em pessoas de terceira idade.|Não, não existe transtorno bipolar infantil.|2
+Quais são os principais sintomas associados a transtornos mentais?|Dores no corpo e falta reflexos|Mudanças drásticas de temperatura corporal|Insónias e visão desfocada|Perda de memória e incapacidade intelectual|4
+De que forma devemos prevenir a saúde mental na adolescência?|Recorrer à auto medicação|Apenas procurar ajuda em casos extremos |Reconhecer que não estamos bem e procurar ajuda de um profissional|Esperar que os sintomas desapareçam|3
+Pode interferir negativamente na saúde mental:|Problemas sociais|Equilíbrio emocional|Maior proximidade com familiares e amigos|A prática de desporto|1

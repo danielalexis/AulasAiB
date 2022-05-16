@@ -1,0 +1,15 @@
+C:\Users\Alexis\Desktop\Projetos\AiB\AulasAiB\C#\Exercicio2\Exercicio2\bin\Debug\net6.0-windows\Exercicio2.exe
+C:\Users\Alexis\Desktop\Projetos\AiB\AulasAiB\C#\Exercicio2\Exercicio2\bin\Debug\net6.0-windows\Exercicio2.deps.json
+C:\Users\Alexis\Desktop\Projetos\AiB\AulasAiB\C#\Exercicio2\Exercicio2\bin\Debug\net6.0-windows\Exercicio2.runtimeconfig.json
+C:\Users\Alexis\Desktop\Projetos\AiB\AulasAiB\C#\Exercicio2\Exercicio2\bin\Debug\net6.0-windows\Exercicio2.dll
+C:\Users\Alexis\Desktop\Projetos\AiB\AulasAiB\C#\Exercicio2\Exercicio2\bin\Debug\net6.0-windows\ref\Exercicio2.dll
+C:\Users\Alexis\Desktop\Projetos\AiB\AulasAiB\C#\Exercicio2\Exercicio2\bin\Debug\net6.0-windows\Exercicio2.pdb
+C:\Users\Alexis\Desktop\Projetos\AiB\AulasAiB\C#\Exercicio2\Exercicio2\obj\Debug\net6.0-windows\Exercicio2.csproj.AssemblyReference.cache
+C:\Users\Alexis\Desktop\Projetos\AiB\AulasAiB\C#\Exercicio2\Exercicio2\obj\Debug\net6.0-windows\Exercicio2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Alexis\Desktop\Projetos\AiB\AulasAiB\C#\Exercicio2\Exercicio2\obj\Debug\net6.0-windows\Exercicio2.AssemblyInfoInputs.cache
+C:\Users\Alexis\Desktop\Projetos\AiB\AulasAiB\C#\Exercicio2\Exercicio2\obj\Debug\net6.0-windows\Exercicio2.AssemblyInfo.cs
+C:\Users\Alexis\Desktop\Projetos\AiB\AulasAiB\C#\Exercicio2\Exercicio2\obj\Debug\net6.0-windows\Exercicio2.csproj.CoreCompileInputs.cache
+C:\Users\Alexis\Desktop\Projetos\AiB\AulasAiB\C#\Exercicio2\Exercicio2\obj\Debug\net6.0-windows\Exercicio2.dll
+C:\Users\Alexis\Desktop\Projetos\AiB\AulasAiB\C#\Exercicio2\Exercicio2\obj\Debug\net6.0-windows\ref\Exercicio2.dll
+C:\Users\Alexis\Desktop\Projetos\AiB\AulasAiB\C#\Exercicio2\Exercicio2\obj\Debug\net6.0-windows\Exercicio2.pdb
+C:\Users\Alexis\Desktop\Projetos\AiB\AulasAiB\C#\Exercicio2\Exercicio2\obj\Debug\net6.0-windows\Exercicio2.genruntimeconfig.cache

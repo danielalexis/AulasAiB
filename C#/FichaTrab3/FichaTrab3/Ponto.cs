@@ -1,8 +1,14 @@
+/*
+* Autor: Daniel Pereira
+* Data: 21/02/2022
+*/
 namespace FichaTrab3 {
     class Ponto
     {
         private double x;
         private double y;
+
+        // Para ser possivel ver o X e Y fora da class
         public double X {
             get { return x; }
             set { x = value; }

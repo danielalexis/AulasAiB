@@ -1,192 +1,368 @@
-/** Quiz Cidadania
- * Autor: Daniel Pereira, Vasco Rego, Mariana Peixoto e Hugo Cordeiro
- * Data: 27/12/2021
- */
+/**
+    Quiz de Cidadania
+    Autores:
+        Daniel Pereira
+        Hugo Cordeiro
+        Vasco Rego
+        Mariana Peixoto
+    Data: 28/02/2022
+
+*/
 #include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h>
-#include <string.h>
 #include <time.h>
-#include <locale.h> // Para poder usar acentos, etc
+#include <locale.h>
+#include <string.h>
 
-// Constantes
-#define TAMTEX   128    // A utilizar em strings com perguntas e respostas
-#define TAMQST   500    // Tamanho da quest?o mais longa
-#define MAXQST   100    // M?ximo de quest?es admitido
-const char nomeFicheiro[] = "Quest_Cidadania.txt"; // Ficheiro com as perguntas
 
-// Conjunto de todas as perguntas
-char quest[MAXQST][TAMQST];
+#define limparEcra() system("cls");
+#define TAMSCORE 10
+#define TAMTEXT 256
+#define TAMQST 256
+#define MAXQST 256
 
-void menu();
-void init( char[][TAMQST]);
-int FazerQuest( char[][TAMQST], int, int);       // Faz questionário de x perguntas num total de y
-// Funcoes de armazenamento em ficheiro
-int CarregarQuest( const char *, char[][TAMQST]);   // Carrega quest?es a partir de ficheiro
-int GuardarQuestoes( char[][TAMQST], const char *);    // Guarda quest?es em ficheiro
+
+int max = 10; // Numero de perguntas do quiz ( Para usar nos loops "for" i<max )
+int respostasCertas, resultado; // Variaveis para calcular o resultado no final
+int totalPerguntas, totalScore;
+
+char quiz[MAXQST][TAMQST]; // Array bidimensional
+
+const char perguntasFicheiro[] = "Quest_Cidadania.txt";    // Ficheiro onde est o guardadas perguntas e respostas
+const char scoreFicheiro[] = "score.dat";            // Ficheiro onde est o guardadas as pontua  es
+
+struct score
+{
+    char nome[32];
+    int pontos;
+};
+typedef struct score tabScore;
+
+tabScore tabela[TAMSCORE];
+tabScore jogador;
+
+int opcaoFinal;
+
+// Declara  o de fun  es
+void menuInicial(void);
+int menuFinal(void);
+
+void iniciarArray(char[][TAMQST]);
+void iniciarScore(tabScore[TAMSCORE]);
+
+int carregarPerguntas(const char *, char[][TAMQST]);
+int carregarScore(const char *, tabScore[TAMSCORE]);
+
+int guardarScore(tabScore[TAMSCORE], const char *);
+void registarScore(tabScore *, tabScore[TAMSCORE]);
+
+int executarQuiz(char[][TAMQST], int, int);
+void MostrarScore(tabScore[TAMSCORE]);
 
 
 int main()
 {
-    int totalPergs, res, QuantPerguntas;
+    setlocale(LC_ALL,""); // Permitir a escrita em portugu s
 
-    setlocale(LC_ALL,""); // Para poder usar acentos, etc
-    menu();
-    init(quest);
+    menuInicial();
 
-    // Carrega as questões do ficheiro
-    totalPergs = CarregarQuest(nomeFicheiro, quest);
-    if( totalPergs > 0) {
-        printf("Foram carregadas %i perguntas do ficheiro <%s>.\n", totalPergs, nomeFicheiro);
-    } else {
-        printf("Não foi possível abrir o ficheiro <%s> para leitura.\n", nomeFicheiro);
-    }
+    do{
+        iniciarArray(quiz);
+        iniciarScore(tabela);
 
-    do {
-        printf("\nIntroduza o número de perguntas a fazer (max %i): ", totalPergs);
-        scanf("%i", &QuantPerguntas);
-        if (QuantPerguntas > totalPergs) { printf("Erro: Número de perguntas inválido.\n"); }
-    } while (QuantPerguntas > totalPergs);
+        totalPerguntas = carregarPerguntas(perguntasFicheiro, quiz);
+        totalScore = carregarScore(scoreFicheiro, tabela);
 
-    // Fazer o questionario
-    res = FazerQuest( quest, totalPergs, QuantPerguntas);
-    printf("Acertou %i das %i perguntas.\n", res, QuantPerguntas);
+        executarQuiz(quiz, totalPerguntas, max);
+        registarScore(&jogador, tabela);
+
+        limparEcra();
+        printf("Acertaste %i%% das perguntas! \nConseguiste %i pontos.", resultado, jogador.pontos);
+        guardarScore(tabela, scoreFicheiro);
+
+        menuFinal();
+    }while(opcaoFinal == 1);
+
     return 0;
 }
 
-/** Apresentacao
- * Faz a apresentacao do Quiz
- * Logotipo gerado em: http://www.patorjk.com/software/taag/#p=display&f=Small&t=QuizExTexto
- */
-void menu() {
-    printf("//-----------------------------------------------//\n");
-    printf("|                   Questionario                  |\n");
-    printf("\\\\-----------------------------------------------//\n");
+void menuInicial(void)
+{
+    printf("|------------------------------------|\n");
+    printf("|           Quiz de Cidadania        |\n");
+    printf("|------------------------------------|\n");
+    printf("Nome: ");
+    gets(jogador.nome);
+
+    printf("\nPressiona ENTER para comecar a jogar\n");
+
+    getchar(); // Server para o utilizador pressionar o ENTER e o programa continuar na normalidade
 }
 
-/*
-*  Inicializa o conjunto de perguntas
-*  Estrutura: Pergunta|Resposta|Resposta|Resposta|Resposta|Opção certa
-*/
-void init( char quest[][TAMQST])
+
+
+// Fun  es de inicializa  o
+void iniciarArray(char quest[][TAMQST])
 {
     int i;
 
-    for( i=0; i<MAXQST; i++)
-        strcpy( quest[i], ""); // Inicializa as questões com uma string vazia
+    for( i=0; i<MAXQST; i++) {
+        strcpy( quest[i], ""); // Copia uma string vazia para as questões para inicializar as questões dos quiz
+    }
 }
 
-/** FazerQuestionario
- * Dadas todas as perguntas faz question?rio com max perguntas
- * Par?metros: question?rio, total de perguntas e m?ximo de perguntas a fazer
- * Retorno: Percentagem de respostas corretas (valor%)
- */
-int FazerQuest( char quest[][TAMQST], int total, int max)
+void iniciarScore(tabScore tab[TAMSCORE])
 {
-    char aux[TAMQST];
-    char pergunta[TAMTEX];
-    char resposta1[TAMTEX], resposta2[TAMTEX], resposta3[TAMTEX], resposta4[TAMTEX];
-    int solucao, i, indice;
-    int contaCorretas, numResposta;
-    char *aptd;     // apontador para caracter (endere?o)
-	char delim[] = "|";
+    int i;
 
-    srand(time(NULL));
-    // Baralhar primeiras max quest?es
-    for( i=0; i<max; i++)
+    for( i=0; i<TAMSCORE; i++)
     {
-        indice = rand() % total; // gera ?ndice de quest?o com que trocar posi??o
-        strcpy( aux, quest[i]);
-        strcpy( quest[i], quest[indice]);
-        strcpy( quest[indice], aux);
+        strcpy(tab[i].nome, ""); // Copia uma string vazia para o nome para inicializar o nome do jogador
+        tab[i].pontos = 0;
     }
-    printf("----------------- QUIZ --------------------\n");
-    contaCorretas = 0;
-    for( i=0; i<max; i++)
-    {
-       // Extrai dados da quest?o i
-        aptd = strtok(quest[i], delim);
-        strcpy(pergunta, aptd);
-        aptd = strtok(NULL, delim);
-        strcpy(resposta1, aptd);
-        aptd = strtok(NULL, delim);
-        strcpy(resposta2, aptd);
-        aptd = strtok(NULL, delim);
-        strcpy(resposta3, aptd);
-        aptd = strtok(NULL, delim);
-        strcpy(resposta4, aptd);
-        aptd = strtok(NULL, delim);
-        solucao = atoi(aptd);
-        // Apresenta pergunta e hip?teses de resposta
-        printf("%s\n", pergunta);
-        printf("\t1 - %s\n", resposta1);
-        printf("\t2 - %s\n", resposta2);
-        printf("\t3 - %s\n", resposta3);
-        printf("\t4 - %s\n", resposta4);
-        printf("---------------------------------------\n");
-        printf("Resposta: ");
-        scanf("%i", &numResposta);
-        if( numResposta == solucao)
-            contaCorretas++;
-    }
-    return contaCorretas * 100 / max;   // retorna % de corretas
 }
 
-/** CarregarQuestoes
- * Funcao que faz o carregamento das quest?es a partir de ficheiro de texto
- * na forma:
- *      pergunta|resposta1|resposta2|resposta3|resposta4|solu??o
- * Par?metros: nome do ficheiro e question?rio
- * Retorno: quantidade de quest?es carregadas
- */
-int CarregarQuest( const char file[TAMTEX], char quest[][TAMQST])
+
+
+// Fun  es de leitura
+int carregarPerguntas(const char file[TAMTEXT], char quest[][TAMQST])
 {
     FILE *apf;
     char perg[TAMQST];
     int contador;
 
-    apf = fopen( file, "r");      // Abre ficheiro para leitura
-    if( !apf)
+    apf = fopen(file, "r"); // Abre o ficheiro em leitura
+    if(!apf)
     {
-        return 0; // N?o foi poss?vel abrir o ficheiro para leitura
+        return 0;
     }
     contador = 0;
-    while( fgets( perg, TAMQST, apf) != NULL)
+    while(fgets(perg, TAMQST, apf) != NULL)
     {
-        perg[strlen(perg)-1] = '\0';    // Apaga o '\n' final da linha
-        strcpy( quest[contador], perg); // Adiciona quest?o carregada ao question?rio
-        contador++;                     // Conta mais uma quest?o carregada
+        perg[strlen(perg)-1] = '\0';
+        strcpy(quest[contador], perg); // Copia a pergunta para o seu sitio
+        contador++;
     }
-    fclose( apf);
-    return contador;    // retorna quantidade de quest?es carregadas
+    fclose(apf);
+    return contador;
 }
 
-/** GuardarQuestoes
- * Funcao que guarda as quest?es em ficheiro
- * Par?metros: question?rio e nome do ficheiro
- */
-int GuardarQuestoes( char quest[][TAMQST], const char file[TAMTEX])
+int carregarScore(const char *fic, tabScore tab[TAMSCORE])
+{
+    FILE *apf;
+    tabScore classif;
+    int contador;
+
+    apf = fopen(fic, "r");
+    if(!apf)
+    {
+        return 0;
+    }
+    contador = 0;
+    while(fread( &classif, sizeof( tabScore), 1, apf) > 0)
+    {
+        strcpy( tab[contador].nome, classif.nome); // Coloca o nome no sitio correto
+        tab[contador].pontos = classif.pontos; // Define os pontos
+        contador++;
+    }
+    fclose( apf);
+    return contador;
+}
+
+
+
+// Função para guardar as pontuações no ficheiro "score.dat"
+int guardarScore(tabScore tab[TAMSCORE], const char *fic)
 {
     FILE *apf;
     int i, contador;
 
-    // Abre ficheiro para escrita em modo texto
-    apf = fopen( file, "w");
+    apf = fopen( fic, "w"); // Ficheiro em modo binário
     if( !apf)
     {
-        return 0; // Nao foi possivel abrir o ficheiro para escrita
+        return 0;
     }
-    // Guarda quest?es atuais em ficheiro
+
     contador = 0;
-    for( i=0; i<MAXQST; i++)
+    for( i=0; i<TAMSCORE; i++)
     {
-        // Se a quest?o n?o estiver vazia, guarda-a em ficheiro
-        if( strcmp( quest[i], "") != 0)
+        if( strcmp( tab[i].nome, "") != 0)
         {
-            fprintf(apf, "%s\n", quest[i]);
+            fwrite( &tab[i], sizeof( tabScore), 1, apf);
             contador++;
         }
     }
     fclose( apf);
     return contador;
 }
+
+
+// Função principal - Onde o quiz é executado
+int executarQuiz(char quest[][TAMQST], int total, int max)
+{
+    srand(time(NULL));
+
+    char pergunta[TAMTEXT], resp1[TAMTEXT], resp2[TAMTEXT], resp3[TAMTEXT], resp4[TAMTEXT]; // (string) Inicia as variaveis de texto da pergunta e das respostas para cada questão.
+    char aux[TAMQST]; // Variavel auxiliar
+    respostasCertas = 0;
+    char separador[] = "|"; // As perguntas, as respostas e o número da resposta certa estão separadas por este símbolo no ficheiro das perguntas
+    char *aptd;
+    int i, indice, solucao, numResposta;
+
+    for(i=0; i<max; i++) // Baralhar as perguntas
+    {
+        indice = rand() % total;
+        strcpy(aux, quest[i]);
+        strcpy(quest[i], quest[indice]);
+        strcpy(quest[indice], aux);
+    }
+
+    for(i=0; i<max; i++)
+    {
+        limparEcra();
+        aptd = strtok(quest[i], separador);
+        printf("%s", quest[i]);
+        strcpy(pergunta, aptd);
+        aptd = strtok(NULL, separador);
+        strcpy(resp1, aptd);
+        aptd = strtok(NULL, separador);
+        strcpy(resp2, aptd);
+        aptd = strtok(NULL, separador);
+        strcpy(resp3, aptd);
+        aptd = strtok(NULL, separador);
+        strcpy(resp4, aptd);
+        aptd = strtok(NULL, separador);
+        solucao = atoi(aptd);
+
+
+
+        printf("%s", pergunta);
+        printf("\n_____________________________________\n");
+        printf("\n1 - %s", resp1);
+        printf("\n2 - %s", resp2);
+        printf("\n3 - %s", resp3);
+        printf("\n4 - %s", resp4);
+        printf("\n_____________________________________");
+
+
+        do{
+            char buffer[255];
+
+            printf("\nResposta: ");
+
+            scanf("%s", buffer);
+            numResposta = atoi(buffer);
+
+            if(numResposta > 0 && numResposta < 5)
+            {
+                if(numResposta == solucao)
+                {
+                    respostasCertas++; // Somar 1 unidade a cada resposta certa para depois calcular a pontuação correta
+                }
+
+            }
+            else
+            {
+                printf("Opcao invalida. \n");
+            }
+        }while(numResposta < 1 || numResposta > 4);
+
+    }
+
+    resultado = respostasCertas * 100 / max;
+    jogador.pontos = resultado/10;
+
+    return resultado;
+}
+
+void registarScore(tabScore *jog, tabScore tab[TAMSCORE])
+{
+    int i, j, h, comp;
+
+    i = 0;
+
+    while(i<TAMSCORE && strcmp(jogador.nome, tab[i].nome) != 0)
+    {
+        i++;
+    }
+
+    if(i<TAMSCORE)
+    {
+        if(jogador.pontos > tab[i].pontos)
+        {
+            tab[i].pontos = jog->pontos;
+        }
+    }
+    else
+    {
+        i = 0;
+        while(i<TAMSCORE && tab[i].pontos > jog->pontos)
+        {
+            i++;
+        }
+        if(tab[i].pontos == 0) // Entrada vazia
+        {
+            strcpy(tab[i].nome, jog->nome);
+            tab[i].pontos = jog->pontos;
+        }
+        else
+        {
+
+            for( j=TAMSCORE-1; j>i; j--)
+            {
+                strcpy( tab[j].nome, tab[j-1].nome);
+                tab[j].pontos = tab[j-1].pontos;
+            }
+
+            strcpy( tab[i].nome, jog->nome);
+            tab[i].pontos = jog->pontos;
+        }
+    }
+}
+
+void mostrarScore(tabScore tab[TAMSCORE])
+{
+    limparEcra();
+
+    int i;
+
+    printf("\n---\t--------------------\t---\n");
+    printf("Pos\t%-20s\t%s\n", "Nome", "Pts");
+    printf("---\t--------------------\t---\n");
+    for( i=0; i<TAMSCORE; i++)
+    {
+        if( strcmp( tab[i].nome, "") != 0) // Entrada n o vazia
+        {
+            printf("%3i\t%-20s\t%3i\n", i+1, tab[i].nome, tab[i].pontos);
+        }
+    }
+    printf("---\t--------------------\t---\n\n");
+
+    //sleep(3);
+    menuFinal();
+}
+
+
+
+// Menu final onde pergunta ao  utilizador se quer voltar a jogar
+int menuFinal(void)
+{
+    printf("\n_____________________________________");
+    printf("\nQueres tentar outra vez?");
+    printf("\n\n   1. Sim");
+    printf("\n   2. Nao");
+    printf("\n   3. Mostrar tabela dos melhores resultados");
+    printf("\n_____________________________________\n");
+
+    scanf("%i", &opcaoFinal);
+
+    if(opcaoFinal == 3)
+    {
+        mostrarScore(tabela);
+    }
+    else
+    {
+        return opcaoFinal;
+    }
+}
+
